@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Генератор контента — OpenAI + GigaChat</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <header class="page-header">
+      <h1>🎨 Генератор изображений, инфографик и текстов</h1>
+      <p class="subtitle">
+        Модель изображений: <code>{{ image_model }}</code> ·
+        Модель текста: <code>{{ text_model }}</code>
+      </p>
+    </header>
+
+    <form id="generate-form" class="generate-form">
+      <label for="prompt">Запрос / тема</label>
+      <textarea
+        id="prompt"
+        name="prompt"
+        rows="3"
+        placeholder="Например: польза витамина D для иммунитета"
+        required
+      ></textarea>
+
+      <label class="checkbox-row">
+        <input type="checkbox" id="article-mode" name="article">
+        <span>
+          Статья (GigaChat) + инфографика на её основе
+          <small>(если не отмечено — генерируется только визуализация по запросу через OpenAI)</small>
+        </span>
+      </label>
+
+      <div class="form-actions">
+        <button type="submit" id="submit-btn">Сгенерировать</button>
+        <p id="form-error" class="error-text" role="alert"></p>
+      </div>
+    </form>
+
+    <section id="results">
+      <h2>Результаты</h2>
+      <div id="jobs-list" aria-live="polite"></div>
+    </section>
+  </div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
