@@ -1,4 +1,4 @@
-# Image Generator CLI
+# Content generator
 
 CLI-приложение на Python для генерации изображений, инфографик и текстов через OpenAI и GigaChat.
 
