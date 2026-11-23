@@ -118,6 +118,17 @@ OPENAI_IMAGE_QUALITY=high      # качество по умолчанию: low /
 
 Сайт работает только локально (`127.0.0.1`) и не публикуется наружу. Изображения раздаются напрямую из папки `output/` через `/media/<имя файла>`.
 
+## Документация (AI System Card)
+
+В `docs/Content_Producer_AI_System_Card.docx` — паспорт ИИ-решения: бизнес-контекст и KPI, метрики качества/guard/производительности, ограничения модели, риски (приватность, безопасность, регуляторика, этика) и подробный Prompt Engineering Guide (точные системные/пользовательские промпты, модели и параметры GigaChat и OpenAI).
+
+Документ сгенерирован скриптом `docs/generate_system_card.py`. Если изменятся промпты или параметры в `imagegen/gigachat_client.py` / `imagegen/openai_client.py`, пересоберите документ:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r docs\requirements.txt
+.\.venv\Scripts\python.exe docs\generate_system_card.py
+```
+
 ## Структура проекта
 
 ```
